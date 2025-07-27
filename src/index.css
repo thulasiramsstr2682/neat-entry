@@ -1,40 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Expense Tracker Design System - Clean & Minimal */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 217 33% 17%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 217 33% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 217 33% 17%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary brand color - Clean blue */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 91% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Success color - For positive actions */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Clean gray scale */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 217 33% 17%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 217 14% 57%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 217 33% 17%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Minimal borders and inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
+
+    /* Category colors */
+    --category-food: 25 95% 53%;
+    --category-transport: 217 91% 60%;
+    --category-utilities: 142 76% 36%;
+    --category-shopping: 271 91% 65%;
+    --category-entertainment: 348 83% 47%;
+    --category-health: 0 84% 60%;
+    --category-other: 217 14% 57%;
 
     --radius: 0.5rem;
 
@@ -100,6 +117,51 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  .expense-input {
+    @apply w-full px-6 py-4 text-lg bg-white border-2 border-input rounded-xl 
+           focus:border-primary focus:ring-0 focus:outline-none 
+           placeholder:text-muted-foreground transition-colors;
+  }
+  
+  .expense-card {
+    @apply bg-white border border-border rounded-xl p-4 
+           hover:shadow-md transition-shadow;
+  }
+  
+  .category-tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .category-food {
+    @apply bg-orange-100 text-orange-800;
+  }
+  
+  .category-transport {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .category-utilities {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .category-shopping {
+    @apply bg-purple-100 text-purple-800;
+  }
+  
+  .category-entertainment {
+    @apply bg-pink-100 text-pink-800;
+  }
+  
+  .category-health {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .category-other {
+    @apply bg-gray-100 text-gray-800;
   }
 }
